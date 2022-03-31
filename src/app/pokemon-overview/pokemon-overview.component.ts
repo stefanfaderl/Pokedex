@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonList } from '../pokemon-list';
 
 import { PokemonService } from '../pokemon.service';
 
@@ -8,17 +9,31 @@ import { PokemonService } from '../pokemon.service';
   styleUrls: ['./pokemon-overview.component.scss']
 })
 export class PokemonOverviewComponent implements OnInit {
-  pokemons: any[] = []; // init an empty array
+  pokemons: PokemonList[] = []; // init an empty array
 
   constructor(
-    private pokemonService: PokemonService
-  ) { }
+    private pokemonService: PokemonService // dependency injection
+    ) {
+  }
 
   ngOnInit(): void {
+    // this.getPage(this.offset);
     this.getPokemons();
   }
 
-  getPokemons(): void {
+  private getPokemons(): void {
+    this.pokemonService.getPokemons()
+      .subscribe((result: any) => {
+        console.log(result);
+        console.log(result.results); // ist gleich das ganze array. ts classe bauen details? aber dann in service ts
+        this.pokemons = result.results;
+      })
+  }
+}
+
+/*
+Next method to offset
+
     this.pokemonService.getPokemons()
       .subscribe((response: any) => {
         console.log(response);
@@ -30,19 +45,4 @@ export class PokemonOverviewComponent implements OnInit {
             });
         });
       });
-  }
-
-/*
-  getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes); // Waits for the Observable to emit the array of heroes—which could happen now or several minutes from now. The subscribe() method passes the emitted array to the callback, which sets the component's heroes property. As a rule, an Observable does nothing until something subscribes.
-  }
-*/
-
-}
-
-/*
-Next method to offset
-
-
 */

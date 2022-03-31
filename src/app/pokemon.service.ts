@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PokemonList } from './pokemon-list';
 
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -8,22 +9,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PokemonService {
+  private defaultUrl = 'https://pokeapi.co/api/v2';
 
   constructor(
-    private http: HttpClient
+    private httpClient: HttpClient
   ) { }
 
   // Get Pokemons
-  getPokemons() {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=2`)
+  getPokemons(): Observable<PokemonList[]> {
+    let response = this.httpClient.get<PokemonList[]>(this.defaultUrl + '/pokemon?limit=20&offset=0');
+    console.log(response);
+    return response;
   }
 
-  // Get more Pokemons Data
+
+/*   // Get more Pokemons Data
   getMoreData(name: string) {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-  }
+    return this.httpClient.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+  } */
 
-  getImage() {
-
-  }
 }
+
+// endpuntk ist ja quasi name

@@ -1,8 +1,11 @@
 <p>pokemon works!</p>
 
 <div *ngFor="let pokemon of pokemons">
-  <p>ID: {{pokemon.id}}</p>
   <p>Name: {{pokemon.name}}</p>
-  Image: <img src="{{pokemon.sprites.front_default}}" alt="Pokemon={{pokemon.name}}" width="200px">
-  <div>Type: {{pokemon.types[0].type.name}}</div>
+  <p>Url: {{pokemon.url}}</p>
+  <!-- <p>ID: {{pokemon.id}}</p> -->
+  <!-- Image: <img src="{{pokemons.results.sprites.front_default}}" alt="Pokemon={{pokemon.name}}" width="200px"> -->
+  <!-- <div>Type: {{pokemon.types[0].type.name}}</div> -->
 </div>
+
+<!--  mit alt und pfeiltasten tabs in vsc switchen ^^ -->
