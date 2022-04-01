@@ -1,33 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PokemonList } from './pokemon-list';
 
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Pokemon } from './pokemon';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
-  private defaultUrl = 'https://pokeapi.co/api/v2';
+  private defaultUrl = 'https://pokeapi.co/api/v2/';
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
   // Get Pokemons
-  getPokemons(): Observable<PokemonList[]> {
-    let response = this.httpClient.get<PokemonList[]>(this.defaultUrl + '/pokemon?limit=20&offset=0');
-    console.log(response);
-    return response;
+  getPokemons(): Observable<Pokemon[]> {
+    return this.httpClient.get<Pokemon[]>(this.defaultUrl + 'pokemon?limit=10&offset=0')
+      .pipe(
+        map((pokemon: any) => pokemon.results)
+      );
   }
 
-
-/*   // Get more Pokemons Data
-  getMoreData(name: string) {
-    return this.httpClient.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-  } */
-
+  // Get Pokemon Data
+  getPokemon(name: string): Observable<Pokemon[]> {
+    return this.httpClient.get<Pokemon[]>(this.defaultUrl + 'pokemon/' + name)
+  }
 }
-
-// endpuntk ist ja quasi name

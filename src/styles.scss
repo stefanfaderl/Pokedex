@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Passero+One&family=Poppins&family=Roboto+Mono:wght@600&family=Roboto:wght@300&family=Ubuntu&display=swap");
+.grass {
+  background-color: #7ac74c;
+}
+
+.fire {
+  background-color: #b71e1e;
+}
+
+.water {
+  background-color: #6390f0;
+}
+
+.bug {
+  background-color: #a6b91a;
+}
+
+p,
+h2 {
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-family: "Passero One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4rem!important ;
+  line-height: 152px;
+  text-align: center;
+  letter-spacing: 0.25em;
+  color: #ffcc00;
+  // 1st value = horizontal offset, 2nd vertical
+  text-shadow: -5px -2px 0 #375ca9, 2px -2px 0 #375ca9, -2px 2px 0 #375ca9,
+    3px 5px 0 #375ca9;
+}
+/*
+Normal Type: A8A77A
+Fire Type:  EE8130
+Water Type:  6390F0
+Electric Type:  F7D02C
+Grass Type:  7AC74C
+Ice Type:  96D9D6
+Fighting Type:  C22E28
+Poison Type:  A33EA1
+Ground Type:  E2BF65
+Flying Type:  A98FF3
+Psychic Type:  F95587
+Bug Type:  A6B91A
+Rock Type:  B6A136
+Ghost Type:  735797
+Dragon Type:  6F35FC
+Dark Type:  705746
+Steel Type:  B7B7CE
+Fairy Type:  D685AD
+*/

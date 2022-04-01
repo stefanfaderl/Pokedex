@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonList } from '../pokemon-list';
-
 import { PokemonService } from '../pokemon.service';
+import { Pokemon } from '../pokemon';
 
 @Component({
   selector: 'app-pokemon-overview',
@@ -9,40 +8,39 @@ import { PokemonService } from '../pokemon.service';
   styleUrls: ['./pokemon-overview.component.scss']
 })
 export class PokemonOverviewComponent implements OnInit {
-  pokemons: PokemonList[] = []; // init an empty array
+  pokemons: Pokemon[] = []; // init an empty array
+
 
   constructor(
     private pokemonService: PokemonService // dependency injection
-    ) {
+  ) {
   }
 
   ngOnInit(): void {
-    // this.getPage(this.offset);
     this.getPokemons();
   }
 
+  /* Get PokemonS */
   private getPokemons(): void {
     this.pokemonService.getPokemons()
-      .subscribe((result: any) => {
-        console.log(result);
-        console.log(result.results); // ist gleich das ganze array. ts classe bauen details? aber dann in service ts
-        this.pokemons = result.results;
-      })
+      .subscribe((results: any) => {
+        this.getPokemon(results);
+        // this.pokemons = result;
+        // console.log(results);
+      });
+  }
+
+  /* GET Pokemon */
+  private getPokemon(results): void {
+    results.forEach((element: { name: string; }) => {
+      this.pokemonService.getPokemon(element.name)
+        //console.log(element.name);
+        .subscribe((pokemonData: any) => {
+          this.pokemons.push(pokemonData);
+          this.pokemons.sort((a, b) => a.id - b.id) // debuggen
+          // const pokeTypes = pokemonData.types.map(pokeType => pokeType.type.name);
+          // console.log(pokeTypes.slice(0, 1));
+        });
+    });
   }
 }
-
-/*
-Next method to offset
-
-    this.pokemonService.getPokemons()
-      .subscribe((response: any) => {
-        console.log(response);
-        response.results.forEach(result => {
-          this.pokemonService.getMoreData(result.name)
-            .subscribe((pokemonData: any) => {
-              this.pokemons.push(pokemonData);
-              console.log(this.pokemons);
-            });
-        });
-      });
-*/

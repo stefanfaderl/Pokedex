@@ -1,11 +1,18 @@
-<p>pokemon works!</p>
+<h1 class="text-center">POKEDEX</h1>
 
-<div *ngFor="let pokemon of pokemons">
-  <p>Name: {{pokemon.name}}</p>
-  <p>Url: {{pokemon.url}}</p>
-  <!-- <p>ID: {{pokemon.id}}</p> -->
-  <!-- Image: <img src="{{pokemons.results.sprites.front_default}}" alt="Pokemon={{pokemon.name}}" width="200px"> -->
-  <!-- <div>Type: {{pokemon.types[0].type.name}}</div> -->
+<div>
+  <div class="container">
+    <div class="row my-1 gy-3 gx-3">
+      <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" *ngFor="let pokemon of pokemons">
+        <div class="{{pokemon.types[0].type.name}}">
+          <p>ID: #{{pokemon.id}}</p>
+          <p>Name: {{pokemon.name}}</p>
+          Image: <img [src]="pokemon.sprites.front_default" alt="Pokemon={{pokemon.name}}" width="150px">
+          <div>Type: {{pokemon.types[0].type.name}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--  mit alt und pfeiltasten tabs in vsc switchen ^^ -->
