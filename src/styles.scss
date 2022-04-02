@@ -1,11 +1,87 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Passero+One&family=Poppins&family=Roboto+Mono:wght@600&family=Roboto:wght@300&family=Ubuntu&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
+
+h1 {
+  font-family: "Passero One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4rem !important ;
+  line-height: 152px;
+  text-align: center;
+  letter-spacing: 0.25em;
+  color: #ffcc00;
+  // 1st value = horizontal offset, 2nd vertical
+  text-shadow: -5px -2px 0 #375ca9, 2px -2px 0 #375ca9, -2px 2px 0 #375ca9,
+    3px 5px 0 #375ca9;
+}
+
+p,
+h2 {
+  font-size: 1.5rem;
+}
+
+.poke_name {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.25em;
+  color: white;
+  display: block;
+  padding: 15px 0 0 20px;
+  margin: 0px;
+}
+
+.poke_id {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.25em;
+  color: white;
+  padding: 15px 0 0 30px;
+  margin: 0px;
+}
+
+.poke_flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-bottom: 10px;
+}
+
+.poke_type {
+  display: flex;
+  height: fit-content;
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.25em;
+  color: #ffffff;
+  width: fit-content;
+  margin: 0 0 0 20px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.281);
+}
+
+.poke_img {
+  display: flex;
+  width: 120px;
+  object-fit: cover;
+}
+
+/* Pokomon card colors */
 .grass {
   background-color: #7ac74c;
 }
 
 .fire {
-  background-color: #b71e1e;
+  background-color: #ee8130;
 }
 
 .water {
@@ -16,24 +92,54 @@
   background-color: #a6b91a;
 }
 
-p,
-h2 {
-  font-size: 1.5rem;
+.normal {
+  background-color: #a8a77a;
 }
 
-h1 {
-  font-family: "Passero One";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 4rem!important ;
-  line-height: 152px;
-  text-align: center;
-  letter-spacing: 0.25em;
-  color: #ffcc00;
-  // 1st value = horizontal offset, 2nd vertical
-  text-shadow: -5px -2px 0 #375ca9, 2px -2px 0 #375ca9, -2px 2px 0 #375ca9,
-    3px 5px 0 #375ca9;
+.electric {
+  background-color: #f7d02c;
 }
+
+.ice {
+  background-color: #96d9d6;
+}
+
+.fighting {
+  background-color: #c22e28;
+}
+
+.poison {
+  background-color: #a33ea1;
+}
+.ground {
+  background-color: #e2bf65;
+}
+
+.flying {
+  background-color: #a98ff3;
+}
+.psychic {
+  background-color: #f95587;
+}
+.rock {
+  background-color: #b6a136;
+}
+.ghost {
+  background-color: #735797;
+}
+.dragon {
+  background-color: #6f35fc;
+}
+.dark {
+  background-color: #705746;
+}
+.steel {
+  background-color: #b7b7ce;
+}
+.fairy {
+  background-color: #d685ad;
+}
+
 /*
 Normal Type: A8A77A
 Fire Type:  EE8130

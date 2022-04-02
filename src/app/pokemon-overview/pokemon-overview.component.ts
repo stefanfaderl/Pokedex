@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../pokemon.service';
 import { Pokemon } from '../pokemon';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-overview',

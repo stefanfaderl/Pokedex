@@ -1,14 +1,12 @@
-export class Pokemon {
-  constructor(
-    public name: string,
-    public img: string,
-    public type: string,
-    public id: number,
-    public types: Type[]
-  ) { }
+export interface Pokemon {
+  name: string,
+  img: string,
+  type: string,
+  id: number,
+  types: Type[]
 }
 
-class Type {
+interface Type {
   slot: number;
   type: {
     name: string;
