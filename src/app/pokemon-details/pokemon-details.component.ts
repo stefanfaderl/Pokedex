@@ -30,5 +30,4 @@ export class PokemonDetailsComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
 }

@@ -1,16 +1,56 @@
-<p>pokemon-details works!</p>
+<a routerLink="/overview">
+  <h1 class="text-center mt-3">PoKéMoN Details</h1>
+</a>
 
 <div *ngIf="pokemon">
-  <h2>Name: {{ pokemon.name }}</h2>
-  <div><span>ID: </span>{{pokemon.id}}</div>
-  <div>Height: {{pokemon.height}}</div>
-  <div>Weight: {{pokemon.weight}}</div>
-
-  <div>HP: {{pokemon.stats[0].base_stat}}</div>
-  <div>Attack: {{pokemon.stats[1].base_stat}}</div>
-  <div>Defense: {{pokemon.stats[2].base_stat}}</div>
-  <div>Special-Attack: {{pokemon.stats[3].base_stat}}</div>
-  <div>Special-Defense: {{pokemon.stats[4].base_stat}}</div>
-  <div>Speed: {{pokemon.stats[5].base_stat}}</div>
-  <button type="button" (click)="goBack()">go back</button>
+  <button class="goBackBtn {{pokemon.types[0].type.name}}" type="button" (click)="goBack()"><i
+      class="bi bi-arrow-left fw-bold"></i> back</button>
+</div>
+<!-- col sm-6 col-md-6 col-lg-4 col-xl-4 -->
+<div *ngIf="pokemon">
+  <div class="container">
+    <div class="card mx-auto border-0 mb-3 col col-sm-12 col-md-10 col-lg-8 col-xl-8 col-xxl-8">
+      <div class="rounded p-3 {{pokemon.types[0].type.name}}">
+        <h2 class="card-title text-center">#{{pokemon.id.toString().padStart(3,'0')}}
+          {{pokemon.name.toUpperCase()}}</h2>
+        <img class="card-img-top w-25 mx-auto d-block mt-4"
+          [src]="pokemon.sprites.versions['generation-v']['black-white'].animated.front_default"
+          alt="Pokemon={{pokemon.name}}"> <!-- lol, took a long time for the right path -->
+        <div class="card-body">
+          <div class="card-text">
+            <h3 class="card-title text-center mt-4 mb-3"><u>Details</u></h3>
+            <div class="row card-body-text mb-3">
+              <div class="col-sm-6 pt-2 pb-2 d-flex justify-content-between border border-1">
+                Height:<span> <b>{{pokemon.height}}</b> </span>
+              </div>
+              <div class="col-sm-6 pt-2 pb-2 d-flex justify-content-between border border-1">
+                Weight:<span><b>{{pokemon.weight}}</b></span>
+              </div>
+            </div>
+            <h3 class="card-title text-center mb-3"><u>Base Stats</u></h3>
+            <div class="row card-body-text">
+              <div class="col-sm-6 pt-2 pb-2 d-flex justify-content-between border">
+                HP:<span><b> {{pokemon.stats[0].base_stat}}</b></span>
+              </div>
+              <div class="col-sm-6 pt-2 pb-2 d-flex justify-content-between border">
+                Attack:<span><b>{{pokemon.stats[1].base_stat}}</b></span>
+              </div>
+              <div class="col-sm-6 pt-2 pb-2 d-flex justify-content-between border">
+                Defense:<span><b>{{pokemon.stats[2].base_stat}}</b></span>
+              </div>
+              <div class="col-sm-6 pt-2 pb-2 d-flex justify-content-between border">
+                Special-Attack:<span><b>{{pokemon.stats[3].base_stat}}</b></span>
+              </div>
+              <div class="col-sm-6 pt-2 pb-2 d-flex justify-content-between border">
+                Special-Defense:<span><b>{{pokemon.stats[4].base_stat}}</b></span>
+              </div>
+              <div class="col-sm-6 pt-2 pb-2 d-flex justify-content-between border">
+                Speed:<span><b>{{pokemon.stats[5].base_stat}}</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

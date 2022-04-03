@@ -3,18 +3,23 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
 
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 h1 {
   font-family: "Passero One";
   font-style: normal;
   font-weight: 400;
-  font-size: 4rem !important ;
-  line-height: 152px;
+  font-size: calc(100% + 3vw + 3vh) !important;
+  // calc(100% + 1vw + 1vh);
   text-align: center;
   letter-spacing: 0.25em;
   color: #ffcc00;
   // 1st value = horizontal offset, 2nd vertical
   text-shadow: -5px -2px 0 #375ca9, 2px -2px 0 #375ca9, -2px 2px 0 #375ca9,
     3px 5px 0 #375ca9;
+}
+a {
+  text-decoration: none !important;
 }
 
 p,

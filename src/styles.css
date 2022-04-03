@@ -5,8 +5,7 @@ h1 {
   font-family: "Passero One";
   font-style: normal;
   font-weight: 400;
-  font-size: 4rem !important;
-  line-height: 152px;
+  font-size: calc(100% + 3vw + 3vh) !important;
   text-align: center;
   letter-spacing: 0.25em;
   color: #ffcc00;

@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Passero+One&family=Poppins&family=Roboto+Mono:wght@600&family=Roboto:wght@300&family=Ubuntu&display=swap");
+
+.rounded {
+  border: none;
+  border-radius: 30px !important;
+  cursor: auto;
+}
+
+.card-title {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  color: white;
+}
+
+.card-body-text {
+  font-family: "Poppins";
+  font-size: 1.3rem;
+  color: white;
+}
+
+.goBackBtn {
+  margin: 0px 0px 10px 10px;
+  padding: 10px 20px;
+  font-size: calc(100% + 0.3vw + 0.3vh);
+  font-weight: bold;
+  border-radius: 30px;
+  border: none;
+  color: white;
+}

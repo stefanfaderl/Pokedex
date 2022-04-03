@@ -27,7 +27,7 @@ export class PokemonOverviewComponent implements OnInit {
       .subscribe((results: any) => {
         this.getPokemon(results);
         // this.pokemons = result;
-        // console.log(results);
+        //console.dir(this.pokemons);
       });
   }
 
@@ -35,7 +35,7 @@ export class PokemonOverviewComponent implements OnInit {
   private getPokemon(results): void {
     results.forEach((element: { name: string; }) => {
       this.pokemonService.getPokemon(element.name)
-        //console.log(element.name);
+        // console.log(element.name);
         .subscribe((pokemonData: any) => {
           this.pokemons.push(pokemonData);
           this.pokemons.sort((a, b) => a.id - b.id) // debuggen
