@@ -1,20 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Passero+One&family=Poppins&family=Roboto+Mono:wght@600&family=Roboto:wght@300&family=Ubuntu&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
-
 h1 {
   font-family: "Passero One";
   font-style: normal;
   font-weight: 400;
-  font-size: 4rem !important ;
+  font-size: 4rem !important;
   line-height: 152px;
   text-align: center;
   letter-spacing: 0.25em;
   color: #ffcc00;
-  // 1st value = horizontal offset, 2nd vertical
-  text-shadow: -5px -2px 0 #375ca9, 2px -2px 0 #375ca9, -2px 2px 0 #375ca9,
-    3px 5px 0 #375ca9;
+  text-shadow: -5px -2px 0 #375ca9, 2px -2px 0 #375ca9, -2px 2px 0 #375ca9, 3px 5px 0 #375ca9;
 }
 
 p,
@@ -54,15 +50,25 @@ h2 {
 }
 
 .poke_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   padding-bottom: 10px;
 }
 
 .poke_type {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   font-family: "Roboto Slab";
   font-style: normal;
@@ -70,6 +76,8 @@ h2 {
   font-size: 1rem;
   letter-spacing: 0.25em;
   color: #ffffff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0 0 0 20px;
   padding: 10px;
@@ -78,9 +86,12 @@ h2 {
 }
 
 .poke_img {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 120px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /* Pokomon card colors */
@@ -119,6 +130,7 @@ h2 {
 .poison {
   background-color: #a33ea1;
 }
+
 .ground {
   background-color: #e2bf65;
 }
@@ -126,24 +138,31 @@ h2 {
 .flying {
   background-color: #a98ff3;
 }
+
 .psychic {
   background-color: #f95587;
 }
+
 .rock {
   background-color: #b6a136;
 }
+
 .ghost {
   background-color: #735797;
 }
+
 .dragon {
   background-color: #6f35fc;
 }
+
 .dark {
   background-color: #705746;
 }
+
 .steel {
   background-color: #b7b7ce;
 }
+
 .fairy {
   background-color: #d685ad;
 }
@@ -168,3 +187,4 @@ Dark Type:  705746
 Steel Type:  B7B7CE
 Fairy Type:  D685AD
 */
+/*# sourceMappingURL=styles.css.map */

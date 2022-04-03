@@ -1,20 +1,24 @@
-<h1 class="text-center">POKEDEX</h1>
+<h1 class="text-center mt-3">POKEDEX</h1>
 
 <div>
   <div class="container">
-    <div class="row my-1 gy-3 gx-3">
+    <div class="row my-3 gy-3 gx-3">
       <div class="col sm-6 col-md-6 col-lg-4 col-xl-4" *ngFor="let pokemon of pokemons">
-        <div class="rounded {{pokemon.types[0].type.name}}">
-          <p class="poke_name">{{pokemon.name.toUpperCase()}}</p>
-          <p class="poke_id">#{{pokemon.id.toString().padStart(3,'0')}}</p>
-          <div class="poke_flex">
-            <div class="poke_type">{{pokemon.types[0].type.name.toUpperCase()}}</div>
-            <img class="poke_img" [src]="pokemon.sprites.front_default" alt="Pokemon={{pokemon.name}}">
+        <a routerLink="/detail/{{pokemon.id}}">
+          <div class="rounded {{pokemon.types[0].type.name}}">
+            <p class="poke_name">{{pokemon.name.toUpperCase()}}</p>
+            <p class="poke_id">#{{pokemon.id.toString().padStart(3,'0')}}</p>
+            <div class="poke_flex">
+              <div class="poke_type">{{pokemon.types[0].type.name.toUpperCase()}}</div>
+              <img class="poke_img" [src]="pokemon.sprites.front_default" alt="Pokemon={{pokemon.name}}">
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
 </div>
+
+
 
 <!--  mit alt und pfeiltasten tabs in vsc switchen ^^ -->

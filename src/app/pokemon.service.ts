@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { catchError, map, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Pokemon } from './pokemon';
+import { POKEMONS } from './moch-pokemons';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class PokemonService {
 
   // Get Pokemons
   getPokemons(): Observable<Pokemon[]> {
-    return this.httpClient.get<Pokemon[]>(this.defaultUrl + 'pokemon?limit=15&offset=0')
+    return this.httpClient.get<Pokemon[]>(this.defaultUrl + 'pokemon?limit=4&offset=0')
       .pipe(
         map((pokemon: any) => pokemon.results)
       );
@@ -26,5 +26,15 @@ export class PokemonService {
   // Get Pokemon Data
   getPokemon(name: string): Observable<Pokemon[]> {
     return this.httpClient.get<Pokemon[]>(this.defaultUrl + 'pokemon/' + name)
+  }
+
+  // get Pokemon by ID
+  getPokemonById(id: number): Observable<Pokemon[]> {
+    // For now, assume that a hero with the specified `id` always exists.
+    // Error handling will be added in the next step of the tutorial.
+    // const pokemon = POKEMONS.find(p => p.id === id)!;
+    return this.httpClient.get<Pokemon[]>(this.defaultUrl + 'pokemon/' + id);
+    /*     console.log(`PokemonService: fetched pokemon id=${id}`);
+        return of(pokemon); */
   }
 }

@@ -1,1 +1,16 @@
 <p>pokemon-details works!</p>
+
+<div *ngIf="pokemon">
+  <h2>Name: {{ pokemon.name }}</h2>
+  <div><span>ID: </span>{{pokemon.id}}</div>
+  <div>Height: {{pokemon.height}}</div>
+  <div>Weight: {{pokemon.weight}}</div>
+
+  <div>HP: {{pokemon.stats[0].base_stat}}</div>
+  <div>Attack: {{pokemon.stats[1].base_stat}}</div>
+  <div>Defense: {{pokemon.stats[2].base_stat}}</div>
+  <div>Special-Attack: {{pokemon.stats[3].base_stat}}</div>
+  <div>Special-Defense: {{pokemon.stats[4].base_stat}}</div>
+  <div>Speed: {{pokemon.stats[5].base_stat}}</div>
+  <button type="button" (click)="goBack()">go back</button>
+</div>
