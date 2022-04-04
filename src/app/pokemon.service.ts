@@ -17,7 +17,7 @@ export class PokemonService {
 
   /* Get Pokemons */
   getPokemons(): Observable<Pokemon[]> {
-    return this.httpClient.get<Pokemon[]>(this.defaultUrl + 'pokemon?limit=150&offset=0')
+    return this.httpClient.get<Pokemon[]>(this.defaultUrl + 'pokemon?limit=151&offset=0')
       .pipe(
         map((pokemon: any) => pokemon.results),
         tap(_ => console.log('fetched pokemons successfully')),
@@ -26,7 +26,7 @@ export class PokemonService {
   }
 
   // Get Pokemon by name
-  getPokemon(name: string): Observable<Pokemon[]> {
+  getPokemon(name: string | number): Observable<Pokemon[]> {
     return this.httpClient.get<Pokemon[]>(this.defaultUrl + 'pokemon/' + name)
   }
 

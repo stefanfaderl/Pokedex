@@ -1,3 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Passero+One&family=Poppins&family=Roboto+Mono:wght@600&family=Roboto:wght@300&family=Ubuntu&display=swap");
+
+.searchBar {
+  background-color: #313131;
+  color: white;
+  &::placeholder {
+    color: white;
+    font-family: "Poppins";
+    font-size: 1.1rem;
+    color: white;
+    letter-spacing: 0.1em;
+  }
+}
+
+.pi-search:before {
+  color: white;
+}
+
 :host ::ng-deep .custom-spinner .p-progress-spinner-circle {
   animation: custom-progress-spinner-dash 1.5s ease-in-out infinite,
     custom-progress-spinner-color 6s ease-in-out infinite;

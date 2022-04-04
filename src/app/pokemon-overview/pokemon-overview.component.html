@@ -4,7 +4,48 @@
   <p-progressSpinner class="d-flex justify-content-center align-item-center mt-5"></p-progressSpinner>
 </section>
 
-<div *ngIf="!isFetching">
+<div class="container mt-3">
+  <div class="row">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search ms-3"></i>
+      <input class="form-control form-control-lg text-center rounded-pill searchBar" type="text"
+        placeholder="Pikachu or 130" aria-label="search pokemon" #searchBox id="search-box"
+        (keydown.enter)="onSearchPokemon(searchBox.value)">
+    </span>
+  </div>
+</div>
+
+<!-- toast breaks if screen is smaller than 576px -->
+<p-toast [breakpoints]="{'576px': {width: '100%', right: '50', left: '50'}}" position="center" key="c"></p-toast>
+
+<div *ngIf="isSearching">
+  <div *ngIf="searchPokemon">
+    <div class="container">
+      <div class="row my-3 gy-3 gx-3">
+        <div class="col sm-6 col-md-6 col-lg-4 col-xl-4">
+          <a routerLink="/pokemon-detail/{{searchPokemon.id}}">
+            <div class="rounded {{searchPokemon.types[0].type.name}}">
+              <p class="poke_name">{{searchPokemon.name.toUpperCase()}}</p>
+              <p class="poke_id">#{{searchPokemon.id.toString().padStart(3,'0')}}</p>
+              <div class="poke_flex">
+                <div class="poke_type">{{searchPokemon.types[0].type.name.toUpperCase()}}</div>
+
+                <div [hidden]="!isFetchingImg">
+                  <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner"
+                    strokeWidth="8" fill="rgba(255, 255, 255, 0.200)" animationDuration=".5s"></p-progressSpinner>
+                </div>
+                <img [hidden]="isFetchingImg" class="poke_img" [src]="searchPokemon.sprites.front_default"
+                  alt="Pokemon={{searchPokemon.name}}" (load)="this.isFetchingImg = false;">
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isFetching && !isSearching">
   <div class="container">
     <div class="row my-3 gy-3 gx-3">
       <div class="col sm-6 col-md-6 col-lg-4 col-xl-4" *ngFor="let pokemon of pokemons">

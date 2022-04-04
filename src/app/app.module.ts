@@ -6,6 +6,11 @@ import { PokemonOverviewComponent } from './pokemon-overview/pokemon-overview.co
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -18,7 +23,11 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ToastModule,
+    ButtonModule,
+    RippleModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
