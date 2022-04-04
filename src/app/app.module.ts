@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { PokemonOverviewComponent } from './pokemon-overview/pokemon-overview.component';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

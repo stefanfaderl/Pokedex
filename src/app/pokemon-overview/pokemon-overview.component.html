@@ -1,8 +1,10 @@
 <h1 class="text-center mt-3">POKEDEX</h1>
 
-<input type="text">
+<section *ngIf="isFetching">
+  <p-progressSpinner class="d-flex justify-content-center align-item-center mt-5"></p-progressSpinner>
+</section>
 
-<div>
+<div *ngIf="!isFetching">
   <div class="container">
     <div class="row my-3 gy-3 gx-3">
       <div class="col sm-6 col-md-6 col-lg-4 col-xl-4" *ngFor="let pokemon of pokemons">
@@ -12,7 +14,13 @@
             <p class="poke_id">#{{pokemon.id.toString().padStart(3,'0')}}</p>
             <div class="poke_flex">
               <div class="poke_type">{{pokemon.types[0].type.name.toUpperCase()}}</div>
-              <img class="poke_img" [src]="pokemon.sprites.front_default" alt="Pokemon={{pokemon.name}}">
+
+              <div [hidden]="!isFetchingImg">
+                <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8"
+                  fill="rgba(255, 255, 255, 0.200)" animationDuration=".5s"></p-progressSpinner>
+              </div>
+              <img [hidden]="isFetchingImg" class="poke_img" [src]="pokemon.sprites.front_default"
+                alt="Pokemon={{pokemon.name}}" (load)="this.isFetchingImg = false;">
             </div>
           </div>
         </a>
@@ -20,7 +28,5 @@
     </div>
   </div>
 </div>
-
-
 
 <!--  mit alt und pfeiltasten tabs in vsc switchen ^^ -->

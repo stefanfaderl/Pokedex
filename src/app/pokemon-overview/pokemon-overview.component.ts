@@ -10,7 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class PokemonOverviewComponent implements OnInit {
   pokemons: Pokemon[] = []; // init an empty array
-
+  isFetching: boolean = false;
+  isFetchingImg: boolean = true;
 
   constructor(
     private pokemonService: PokemonService // dependency injection
@@ -23,6 +24,7 @@ export class PokemonOverviewComponent implements OnInit {
 
   /* Get PokemonS */
   private getPokemons(): void {
+    this.isFetching = true;
     this.pokemonService.getPokemons()
       .subscribe((results: any) => {
         this.getPokemon(results);
@@ -39,9 +41,11 @@ export class PokemonOverviewComponent implements OnInit {
         .subscribe((pokemonData: any) => {
           this.pokemons.push(pokemonData);
           this.pokemons.sort((a, b) => a.id - b.id) // debuggen
+          this.isFetching = false;
           // const pokeTypes = pokemonData.types.map(pokeType => pokeType.type.name);
           // console.log(pokeTypes.slice(0, 1));
         });
     });
   }
+
 }
