@@ -3,6 +3,8 @@ import { PokemonService } from '../pokemon.service';
 import { Pokemon } from '../pokemon';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-pokemon-overview',
@@ -23,7 +25,8 @@ export class PokemonOverviewComponent implements OnInit {
   constructor(
     private pokemonService: PokemonService, // dependency injection
     private messageService: MessageService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private location: Location
   ) {
   }
 
@@ -89,4 +92,8 @@ export class PokemonOverviewComponent implements OnInit {
   showError(_error: any, text: string) {
     this.messageService.add({ key: 'c', severity: 'error', summary: _error, detail: text, life: 3000 });
   }
+
+  refresh(): void {
+    window.location.reload();
+}
 }
