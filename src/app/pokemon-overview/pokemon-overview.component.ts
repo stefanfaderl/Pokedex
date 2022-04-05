@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonService } from '../../services/pokemon.service';
-import { Pokemon } from '../../models/pokemon';
+import { PokemonService } from '../pokemon.service';
+import { Pokemon } from '../pokemon';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import { Location } from '@angular/common';
