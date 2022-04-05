@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { PokemonService } from '../pokemon.service';
 import { Pokemon } from '../pokemon';
@@ -13,6 +13,7 @@ export class PokemonDetailsComponent implements OnInit {
   pokemon: Pokemon | any; // normal undefined
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private pokemonService: PokemonService,
     private location: Location
   ) { }
@@ -28,6 +29,26 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    // this.location.back();
+    this.router.navigate(['overview']);
+  }
+
+  jumpBack(): void {
+    let currentId = Number(this.route.snapshot.paramMap.get('id'));
+    let parseId = currentId -= 1;
+    let newId = parseId.toString();
+    this.redirectTo(newId);
+  }
+
+  jumpForward(): void {
+    let currentId = Number(this.route.snapshot.paramMap.get('id'));
+    let parseId = currentId += 1;
+    let newId = parseId.toString();
+    this.redirectTo(newId);
+  }
+
+  redirectTo(uri: string) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this.router.navigate([`pokemon-detail/${uri}`]));
   }
 }

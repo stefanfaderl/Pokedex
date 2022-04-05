@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Passero+One&family=Poppins&family=Roboto+Mono:wght@600&family=Roboto:wght@300&family=Ubuntu&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
-
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
 h1 {
@@ -10,7 +8,6 @@ h1 {
   font-style: normal;
   font-weight: 400;
   font-size: calc(100% + 3vw + 3vh) !important;
-  // calc(100% + 1vw + 1vh);
   text-align: center;
   letter-spacing: 0.25em;
   color: #ffcc00;
@@ -18,6 +15,7 @@ h1 {
   text-shadow: -5px -2px 0 #375ca9, 2px -2px 0 #375ca9, -2px 2px 0 #375ca9,
     3px 5px 0 #375ca9;
 }
+
 a {
   text-decoration: none !important;
 }
@@ -35,7 +33,22 @@ h2 {
   cursor: pointer;
 }
 
-.poke_name {
+.poke_flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-bottom: 10px;
+  .poke_img {
+    display: flex;
+    width: 120px;
+    object-fit: cover;
+  }
+}
+
+.poke_name,
+.poke_id,
+.poke_type {
   font-family: "Roboto Slab";
   font-style: normal;
   font-weight: 700;
@@ -45,47 +58,19 @@ h2 {
   display: block;
   padding: 15px 0 0 20px;
   margin: 0px;
-}
-
-.poke_id {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.3rem;
-  letter-spacing: 0.25em;
-  color: white;
-  padding: 15px 0 0 30px;
-  margin: 0px;
-}
-
-.poke_flex {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: nowrap;
-  padding-bottom: 10px;
-}
-
-.poke_type {
-  display: flex;
-  height: fit-content;
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.25em;
-  color: #ffffff;
-  width: fit-content;
-  margin: 0 0 0 20px;
-  padding: 10px;
-  border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.24);
-}
-
-.poke_img {
-  display: flex;
-  width: 120px;
-  object-fit: cover;
+  &.poke_id {
+    padding: 15px 0 0 30px;
+  }
+  &.poke_type {
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    font-size: 1rem;
+    margin: 0 0 0 20px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.24);
+  }
 }
 
 /* Pokomon card colors */

@@ -1,9 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Passero+One&family=Poppins&family=Roboto+Mono:wght@600&family=Roboto:wght@300&family=Ubuntu&display=swap");
-
 .rounded {
   border: none;
   border-radius: 30px !important;
   cursor: auto;
+}
+
+.flex-container-back-forward {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .box-item-backward,
+  .box-item-forward {
+    background-color: rgba(255, 255, 255, 0.24);
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: none;
+  }
 }
 
 .card-title {
