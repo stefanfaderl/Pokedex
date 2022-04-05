@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of, pipe } from 'rxjs';
-import { Pokemon } from './pokemon';
-import { POKEMONS } from './mock-pokemons';
+import { Pokemon } from '../models/pokemon';
+import { POKEMONS } from '../models/mock-pokemons';
 
 @Injectable({
   providedIn: 'root'
