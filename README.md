@@ -1,3 +1,7 @@
+# Intro
+I replicated the Pokédex from Pokémon using the open RESTful API for data. You can search Pokémons by name or number. Each Pokémon has it's own route and also a nice retro-style GIF. I learned a lot about HTTP requests, routing, observables and many more cool Angular features. 
+
+
 # Pokedex
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
