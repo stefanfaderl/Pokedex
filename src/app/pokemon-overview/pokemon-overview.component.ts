@@ -17,7 +17,6 @@ export class PokemonOverviewComponent implements OnInit {
   isFetching: boolean = false;
   isFetchingImg: boolean = true;
   searchValue: string | number;
-
   searchPokemon: Pokemon;
   isSearching = false;
 
@@ -95,5 +94,5 @@ export class PokemonOverviewComponent implements OnInit {
 
   refresh(): void {
     window.location.reload();
-}
+  }
 }

@@ -14,8 +14,7 @@ export class PokemonDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private pokemonService: PokemonService,
-    private location: Location
+    private pokemonService: PokemonService
   ) { }
 
   ngOnInit(): void {
@@ -29,25 +28,26 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   goBack(): void {
-    // this.location.back();
     this.router.navigate(['overview']);
   }
 
   jumpBack(): void {
     let currentId = Number(this.route.snapshot.paramMap.get('id'));
-    let parseId = currentId -= 1;
-    let newId = parseId.toString();
+    console.log(typeof currentId);
+    let newId = currentId -= 1;
+    if (currentId === 0) {
+      newId = 1;
+    }
     this.redirectTo(newId);
   }
 
   jumpForward(): void {
     let currentId = Number(this.route.snapshot.paramMap.get('id'));
-    let parseId = currentId += 1;
-    let newId = parseId.toString();
+    let newId = currentId += 1;
     this.redirectTo(newId);
   }
 
-  redirectTo(uri: string) {
+  redirectTo(uri: number) {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
       this.router.navigate([`pokemon-detail/${uri}`]));
   }
